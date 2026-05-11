@@ -1,0 +1,78 @@
+:root {
+  color-scheme: light dark;
+  --bg: #0f1115;
+  --bg-alt: #1a1d24;
+  --fg: #f5f6f8;
+  --fg-dim: #b1b6c1;
+  --accent: #ff7a45;
+  --accent-2: #ffd166;
+  --border: #2a2f3a;
+  --danger: #ff5a5a;
+  font-family: system-ui, -apple-system, 'Hiragino Sans', 'Noto Sans JP', sans-serif;
+  -webkit-text-size-adjust: 100%;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--fg);
+  min-height: 100dvh;
+}
+
+body {
+  padding: env(safe-area-inset-top) env(safe-area-inset-right)
+    env(safe-area-inset-bottom) env(safe-area-inset-left);
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+button {
+  font-family: inherit;
+  font-size: 1rem;
+  min-height: 48px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: var(--bg-alt);
+  color: var(--fg);
+  padding: 0 1rem;
+  cursor: pointer;
+  transition: transform 0.05s ease, background 0.15s ease;
+}
+
+button:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+button.primary {
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  color: #1a1100;
+  border: none;
+  font-weight: 700;
+}
+
+button.ghost {
+  background: transparent;
+}
+
+input[type='range'] {
+  width: 100%;
+  accent-color: var(--accent);
+}
+
+img,
+video,
+canvas {
+  max-width: 100%;
+  display: block;
+}

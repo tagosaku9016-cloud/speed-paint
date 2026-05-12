@@ -74,24 +74,3 @@ export function drawLineSegment(
   ctx.restore();
 }
 
-export function paintBlob(
-  ctx: CanvasRenderingContext2D,
-  cx: number,
-  cy: number,
-  radius: number,
-  rgb: [number, number, number],
-  opacity: number,
-  kind: BrushKind,
-): void {
-  ctx.save();
-  const [r, g, b] = rgb;
-  const grad = ctx.createRadialGradient(cx, cy, 0, cx, cy, radius);
-  const edgeAlpha = kind === 'watercolor' ? 0 : 0.1 * opacity;
-  grad.addColorStop(0, `rgba(${r},${g},${b},${0.55 * opacity})`);
-  grad.addColorStop(1, `rgba(${r},${g},${b},${edgeAlpha})`);
-  ctx.fillStyle = grad;
-  ctx.beginPath();
-  ctx.arc(cx, cy, radius, 0, Math.PI * 2);
-  ctx.fill();
-  ctx.restore();
-}

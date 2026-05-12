@@ -78,7 +78,7 @@ export function App() {
     ctx.imageSmoothingEnabled = true;
     ctx.scale(scale, scale);
 
-    const strokes = extractStrokes(img.edges, img.width, img.height);
+    const strokes = extractStrokes(img.lineMask, img.width, img.height);
     if (strokes.length === 0) {
       setState({ kind: 'error', message: 'エッジが検出できませんでした。輪郭のはっきりした画像を試してください。', previewUrl: state.previewUrl });
       return;
